@@ -13,6 +13,8 @@
 
     <properties>
         <java.version>17</java.version> <!-- Specify your Java version -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Set source encoding -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> <!-- Set reporting encoding -->
     </properties>
 
     <dependencies>
@@ -24,8 +26,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Add other dependencies as needed -->
-        <!-- Example: Spring Boot Starter Web -->
+        <!-- Spring Boot Starter Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,6 +42,16 @@
                 <version>3.3.1</version> <!-- Adjust version as needed -->
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml> <!-- For Servlet 3.0+ -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- Adjust version as needed -->
+                <configuration>
+                    <source>${java.version}</source> <!-- Use the Java version property -->
+                    <target>${java.version}</target> <!-- Use the Java version property -->
+                    <encoding>UTF-8</encoding> <!-- Set compiler encoding -->
                 </configuration>
             </plugin>
         </plugins>
